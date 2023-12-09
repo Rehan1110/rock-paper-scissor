@@ -8,15 +8,17 @@
 </head>
 <body>
   <h1>Rock Paper Scissor</h1>
+  <h3><span id="player-score"></span> - <span id="computer-score"></span></h3>
   <div>
     <h2>Your Choice</h2>
-    <button onclick="Rock()">Rock</button>
-    <button onclick="Paper()">Paper</button>
-    <button onclick="Scissor()">Scissor</button>
+    <button onclick="PlayerChoice('Rock')">Rock</button>
+    <button onclick="PlayerChoice('Paper')">Paper</button>
+    <button onclick="PlayerChoice('Scissor')">Scissor</button>
   </div>
   <div>
     <h2>Computer's Choice</h2>
-    <p class="computer-play"></p>
+    <p id="computer-play"></p>
   </div>
+  <div id="result">Win</div>
 </body>
 </html>
