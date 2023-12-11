@@ -1,76 +1,102 @@
-let PlayerScore=0;
-let ComputerScore=0;
-let PlayerMove;
-let Player_Score=document.getElementById('player-score');
-let Computer_Score=document.getElementById('computer-score');
 
-
-function PlayerChoice(value){
- 
+let Player_points=0;
+let Computer_points=0;
+function PlayerMove(value){
+  let ComputerMoveValue;
+  let GameResult=document.getElementById('game-result');
+  let ComputerScore=document.getElementById('computer-score');
+  let PlayerScore=document.getElementById('player-score');
+  let Computer_Move=document.getElementById('computer-move');
+  let Player_Move=document.getElementById('player-move');
+if (value ==='Rock'){
+  ComputerMoveValue=ComputerMove();
   if(value === 'Rock'){
-    PlayerMove='Rock'
-    ComputerChoice();
-    gamePlay();
-  }
-  else if(value === 'Paper'){
-    PlayerMove='Paper';
-    ComputerChoice();
-    gamePlay();
-  }
-  else{
-    PlayerMove='Scissor'
-    ComputerChoice();
-    gamePlay();
-  }
- 
-  return PlayerMove;
-}
-
-function ComputerChoice(){
-  let ComputerMove=document.getElementById('computer-play');
-  console.log(ComputerMove)
-  let randomNumber = Math.floor(Math.random() * 3)+1;
-  if(randomNumber == 1){
-    ComputerMove.textContent="Rock"
-  }
-    else if(randomNumber == 2){
-      ComputerMove.textContent="Paper";
+    if(ComputerMoveValue==='Rock'){
+      GameResult.textContent="It's a tie"
+      Player_points+=1;
+      Computer_points+=1;
+      ComputerScore.textContent=Computer_points;
+      PlayerScore.textContent=Player_points;
+      Computer_Move.textContent="Rock"
+      Player_Move.textContent="Rock"
+    }
+    else if(ComputerMoveValue === 'Paper'){
+      GameResult.textContent="You lose"
+      Computer_points+=1;
+      ComputerScore.textContent=Computer_points;
+      Computer_Move.textContent="Paper"
+      Player_Move.textContent="Rock"
     }
     else{
-      ComputerMove.textContent="Scissor";
-    }
-    return ComputerMove;
-}
-let PlayerChoiceValue=PlayerChoice();
-let ComputerChoiceValue=ComputerChoice();
-
-function gamePlay(PlayerChoiceValue,ComputerChoiceValue){
-  var Result=document.getElementById('result')
-  if(PlayerChoiceValue === 'Rock'){
-    if(ComputerChoiceValue === 'Rock'){
-     Result.textContent="It's a tie"
-    }
-    else if (ComputerChoiceValue === 'Paper'){
-      Result.textContent="You lose"
-    }
-    else{
-      Result.textContent="You win"
+      GameResult.textContent="You win";
+      Player_points+=1;
+      PlayerScore.textContent=Player_points;
+      Computer_Move.textContent="Scissor"
+      Player_Move.textContent="Rock"
     }
   }
-  else if(PlayerChoiceValue === 'Paper'){
-    if(ComputerChoiceValue === 'Paper'){
-     Result.textContent="It's a tie"
+}
+else if (value==='Paper'){
+  ComputerMoveValue=ComputerMove();
+  if(value === 'Paper'){
+    if(ComputerMoveValue==='Rock'){
+      GameResult.textContent="You win"
+      Player_points+=1;
+      PlayerScore.textContent=Player_points;
+      Computer_Move.textContent="Rock"
+      Player_Move.textContent="Paper"
     }
-    else if (ComputerChoiceValue === 'Scissor'){
-      Result.textContent="You lose"
+    else if(ComputerMoveValue === 'Paper'){
+      GameResult.textContent="It's a Tie"
+      Player_points+=1;
+      Computer_points+=1;
+      ComputerScore.textContent=Computer_points;
+      PlayerScore.textContent=Player_points;
+      Computer_Move.textContent="Paper"
+      Player_Move.textContent="Paper"
     }
     else{
-      Result.textContent="You win"
+      GameResult.textContent="You lose"
+      Computer_points+=1;
+      ComputerScore.textContent=Computer_points;
+      Computer_Move.textContent="Scissor"
+      Player_Move.textContent="Paper"
     }
   }
-
-  
-  Player_Score.textContent=PlayerScore;
-  Computer_Score.textContent=ComputerScore;
-
 }
+else if(value==="Scissor"){
+  ComputerMoveValue=ComputerMove();
+  if(value === 'Scissor'){
+    if(ComputerMoveValue==='Rock'){
+      GameResult.textContent="You lose"
+      Computer_points+=1;
+      ComputerScore.textContent=Computer_points;
+      Computer_Move.textContent="Rock"
+      Player_Move.textContent="Scissor"
+    }
+    else if(ComputerMoveValue === 'Paper'){
+      GameResult.textContent="You win";
+      Player_points+=1;
+      PlayerScore.textContent=Player_points;
+      Computer_Move.textContent="Paper"
+      Player_Move.textContent="Scissor"
+    }
+    else{
+      GameResult.textContent="It's a Tie"
+      Player_points+=1;
+      Computer_points+=1;
+      ComputerScore.textContent=Computer_points;
+      PlayerScore.textContent=Player_points;
+      Computer_Move.textContent="Scissor"
+      Player_Move.textContent="Scissor"
+    }
+  }
+}
+}
+function ComputerMove(){
+  let randomNumber=Math.floor(Math.random() *3)+1;
+  if(randomNumber == 1) return ("Rock");
+  else if(randomNumber == 2) return ("Paper");
+  else return ("Scissor")
+};
+
