@@ -8,6 +8,7 @@ function PlayerMove(value){
   let PlayerScore=document.getElementById('player-score');
   let Computer_Move=document.getElementById('computer-move');
   let Player_Move=document.getElementById('player-move');
+
 if (value ==='Rock'){
   ComputerMoveValue=ComputerMove();
   if(value === 'Rock'){
@@ -24,15 +25,15 @@ if (value ==='Rock'){
       GameResult.textContent="You lose"
       Computer_points+=1;
       ComputerScore.textContent=Computer_points;
-      Computer_Move.textContent="Paper"
-      Player_Move.textContent="Rock"
+      Computer_Move.textContent+="Paper"
+      Player_Move.textContent+="Rock"
     }
     else{
       GameResult.textContent="You win";
       Player_points+=1;
       PlayerScore.textContent=Player_points;
-      Computer_Move.textContent="Scissor"
-      Player_Move.textContent="Rock"
+      Computer_Move.textContent+="Scissor"
+      Player_Move.textContent+="Rock"
     }
   }
 }
@@ -91,6 +92,17 @@ else if(value==="Scissor"){
       Player_Move.textContent="Scissor"
     }
   }
+}
+if(Player_points == 10 ){
+  playerWins();
+
+  PlayerScore=0;
+  ComputerScore=0;
+}
+if(Computer_points == 10){
+ computerWins();
+ PlayerScore=0;
+ ComputerScore=0;
 }
 }
 function ComputerMove(){
