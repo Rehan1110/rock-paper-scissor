@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock-Paper-Scissor</title>
+  <link rel="stylesheet" href="index.css"/>
   <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-  <h1>Rock Paper Scissor</h1>
+  <div class="container">
+  <h1 class="rps-heading">Rock Paper Scissor</h1>
   <div><span id="computer-move">Computer-Move:</span> || <span id="player-move">Player-Move:</span></div>
   <p id="game-result"></p>
   <div>
@@ -15,9 +17,10 @@
   </div>
   <br>
   <div>
-    <button onclick="PlayerMove('Rock')">Rock</button>
-    <button onclick="PlayerMove('Paper')">Paper</button>
-    <button onclick="PlayerMove('Scissor')">Scissor</button>
+    <img src="images/rock-emoji.png" onclick="PlayerMove('Rock')" class="emoji"/>
+    <img src="images/paper-emoji.png" onclick="PlayerMove('Paper')" class="emoji"/>
+    <img src="images/scissors-emoji.png" onclick="PlayerMove('Scissor')" class="emoji"/>
   </div>
+</div>
 </body>
 </html>
