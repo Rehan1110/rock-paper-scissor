@@ -99,4 +99,3 @@ function ComputerMove(){
   else if(randomNumber == 2) return ("Paper");
   else return ("Scissor")
 };
-
